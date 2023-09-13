@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>Account</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=no">
+
+    <script src="../static/js/jquery-3.6.1.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="../static/css/account.css">
+</head>
+<body>
+<script>
+    function showLyPop(popName){
+        var $lypop = $('#'+popName+'Lypop');
+
+        $popupScrollTop = $(window).scrollTop();
+        $('.black-bg-wrap').show();
+        if ($lypop.hasClass('ui-flex-box')) {
+            if ($(document.documentElement).hasClass('msie')) {
+                $lypop.css('display', 'block');
+            } else {
+                $lypop.css('display', 'flex');
+            }
+        } else {
+            $lypop.show().focus();
+        }
+        $lypop.focus();
+        window.lyPopOpened = true;
+    }
+</script>
+
+<div class="wrap">
+    <div class="account-member">
+        <div class="form-member">
+            <h2 class="text display2">비밀번호 재설정</h2>
+
+            <p class="">새 비밀번호를 생성하세요.</p>
+
+            <form>
+                <div class="field">
+                    <div class="input action">
+                        <input type="text" class="input-text" placeholder="이메일 아이디" >
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="input">
+                        <input type="password" class="input-text" placeholder="비밀번호" >
+                    </div>
+                </div>
+
+                <em class="helper">영문, 숫자, 특수문자 (!@$%^*?&amp;()+-=) 조합한 8자 이상</em>
+                <em id="user-pw2Error" class="error-text">비밀번호가 일치하지 않습니다.</em>
+
+                <div class="field">
+                    <div class="input">
+                        <input type="password" class="input-text" placeholder="비밀번호" >
+                    </div>
+                </div>
+
+                <button type="button" class="button btnSubmit disabled" onclick="location.href='acc_login.html'">확인</button>
+
+                <div class="field confirm proc notice-alert-message" style="display:none;">
+                    <em class="error-text">회원가입이 완료되었습니다. <br>이메일 인증 후 서비스 이용이 가능합니다.</em>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

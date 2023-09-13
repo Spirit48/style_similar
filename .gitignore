@@ -1,0 +1,9 @@
+.venv
+__pycache__
+migrations
+
+images
+video
+font
+
+*.pdf

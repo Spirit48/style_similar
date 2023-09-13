@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이룸 웹빌더 - 관리자</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+
+    <script type="text/javascript" language="javascript" src="../static/js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" language="javascript" src="../static/js/jquery-ui_admin.js"></script>
+    <script type="text/javascript" language="javascript" src="../static/js/ui_admin.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../static/css/jquery-ui.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/admin.css">
+</head>
+<body>
+<div class="wrap">
+    <header class="header active">
+        <h1 class="logo"><a href="adm_main.html"><img src="../static/images/adm_logo.jpg"></a></h1>
+
+        <div class="user-menu">
+            <button class="btn-big">이룸 주식회사</button>
+            <button class="btn"><a href="index.html">웹사이트</a></button>
+            <button class="btn"><a href="index.html">로그아웃</a></button>
+        </div>
+
+        <nav class="gnb-menu">
+            <ul class="gnb">
+                <li class="on"><a href="adm_member_list.html">사용자관리</a>
+                    <ul>
+                        <li class="on"><a href="adm_member_list.html">일반회원</a></li>
+                    </ul>
+                </li>
+                <li><a href="adm_html_list.html">콘텐츠관리</a>
+                    <ul>
+                        <li><a href="adm_html_list.html">일반(HTML)</a></li>
+                    </ul>
+                </li>
+                <li><a href="adm_service_info.html">서비스관리</a>
+                    <ul>
+                        <li><a href="adm_service_info.html">서비스정보</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <ul class="etc-menu">
+            <li><a href="https://analytics.google.com/" target="_blank">구글 애널리틱스</a></li>
+            <li><a href="#none">원격접속</a></li>
+        </ul>
+    </header>
+
+    <section class="container">
+        <div class="tit-wrap">
+            <h2 class="tit-type"><b>일반회원</b> <span class="tag-txt">목록</span></h2>
+
+            <div class="right">
+                <ul class="path">
+                    <li>홈</li>
+                    <li>사용자관리</li>
+                    <li><b>일반회원</b></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contents">
+            <div class="board-top">
+                <div class="left">
+                    <p class="total">전체 <b>0000</b>개 (<b>1/000</b>쪽)</p>
+                </div>
+                <div class="right">
+                    <form>
+                        <div class="board-search">
+                            <span class="input">
+                                <input type="text">
+
+                                <button class="btn-search">검색</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="board-type">
+                <table>
+                    <colgroup>
+                        <col style="width:10%;">
+                        <col style="width:18%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>
+                                <label class="input-checkbox type-2"><input type="checkbox" name="user_extra_info"><span class="ic"></span></label>
+                            </th>
+                            <th>아이디(이메일)</th>
+                            <th>이름</th>
+                            <th>닉네임</th>
+                            <th>휴대폰</th>
+                            <th>정보수신</th>
+                            <th>가입일자</th>
+                            <th>제명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label class="input-checkbox type-2"><input type="checkbox" name="user_extra_info"><span class="ic"></span></label>
+                            </td>
+                            <td><a href="adm_email_info.html">erum@erum.com - 관리자</a></td>
+                            <td>이룸</td>
+                            <td>관리자</td>
+                            <td>010-2000-2000</td>
+                            <td>메일 Y, 휴대폰 Y</td>
+                            <td>0000-00-00</td>
+                            <td>
+                                <a href="#none" class="btn-type-2 btn-red">제명</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="input-checkbox type-2"><input type="checkbox" name="user_extra_info"><span class="ic"></span></label>
+                            </td>
+                            <td><a href="adm_email_info.html">qkrtjdgh922@naver.com</a></td>
+                            <td>박성호</td>
+                            <td>소나무</td>
+                            <td>010-2000-5385</td>
+                            <td>메일 Y, 휴대폰 N</td>
+                            <td>0000-00-00</td>
+                            <td>
+                                <a href="#none" class="btn-type-2 btn-red">제명</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="paging">
+                <button class="btnPrive" onclick="jsCommonPaging(00); return false;"><i>&lt;&lt;</i></button>
+                <button class="btnPrive" onclick="jsCommonPaging(00); return false;"><i>&lt;</i></button>
+
+                <a class="on">00</a>
+                <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+
+                <button class="btnNext" onclick="jsCommonPaging(00); return false;"><i>&gt;</i></button>
+                <button class="btnLast" onclick="jsCommonPaging(00); return false;"><i>&gt;&gt;</i></button>
+            </div>
+            <div class="btn-box alignR">
+                <a href="adm_email_info.html" class="btn-type-1 btn-yellow">이메일 발송</a>
+            </div>
+            <div class="help-guide">
+                <p class="title"><strong>도움말</strong>입니다</p>
+
+                <ul>
+                    <li>도움말 내용 1</li>
+                    <li>도움말 내용 2</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

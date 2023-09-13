@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>이룸 웹빌더</title>
+
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=no">
+
+    <script type="text/javascript" language="javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><!-- 기본 JS -->
+    <script type="text/javascript" language="javascript" src="../static/js/swiper.min.js"></script><!-- 슬라이드 JS -->
+    <script type="text/javascript" language="javascript" src="../static/js/ui-front.js"></script><!-- 고객 맞춤 UI JS -->
+
+    <link type="text/css" rel="stylesheet" href="../static/css/iwb.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/jquery.bxslider.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/swiper.min.css">
+</head>
+<body>
+<div class="wrap">
+    <header class="header js-header">
+        <div class="wrapper">
+            <a href="javascript:void(0);" class="mMenu"></a>
+
+            <h1 class="logo"><a href="index.html"><img src="../static/images/0_logo.svg" alt=""></a></h1>
+
+            <div class="gnb-menu js-gnb-menu">
+                <div class="mask"></div>
+                <div class="inner">
+                    <div class="gnb-top">
+                        <strong>IWB</strong>
+
+                        <p class="txt">로그인 및 회원가입을 하시면 더 많은<br>정보와 혜택을 받으실 수 있습니다.</p>
+
+                        <div class="menu">
+                            <a href="acc_signup.html" class="btn-signup">회원가입</a>
+                            <a href="acc_login.html" class="btn-login">로그인</a>
+                        </div>
+                    </div>
+
+                    <nav class="list">
+                        <ul>
+                            <li><a href="tpl_greeting.html">TEMPLATES</a>
+                                <ul>
+                                    <li><a href="tpl_greeting.html" target="_self"><b>인사말</b></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="normal_list.html">BOARD</a>
+                                <ul>
+                                    <li><a href="normal_list.html">일반 게시판</a></li>
+                                    <li><a href="gallery_list.html">갤러리 게시판</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0);">CUSTOM</a></li>
+                            <li><a href="javascript:void(0);">ACCOUNT</a>
+                                <ul>
+                                    <li><a href="acc_login.html">로그인</a></li>
+                                    <li><a href="acc_signup.html">회원가입</a></li>
+                                    <li><a href="acc_pw_reset.html">비밀번호 재설정</a></li>
+                                    <li><a href="acc_mypage_iwb.html">마이페이지 웹빌더</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="adm_main.html" target="_blank">ADMIN</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="language js-language">
+                        <a href="javascript:void(0);" class="selected"><em>kr</em> <span class="holder"></span></a>
+
+                        <ul>
+                            <li class="en"><a href="javascript:void(0);">English</a></li>
+                            <li class="ko"><a href="javascript:void(0);">한국어</a></li>
+                          </ul>
+                    </div>
+                    <div class="profile">
+                        <a href="javascript:void(0);" onclick="$('.profile').toggleClass('active');">
+                            <div class="thumb"><img src="../static/images/0_profile.jpg"></div>
+                        </a>
+
+                        <div class="popup">
+                            <div class="info">
+                                <div class="thumbnail"><img src="../static/images/0_profile.jpg"></div>
+
+                                <p><b class="name">이룸</b>님</p>
+
+                                <a href="acc_mypage_iwb.html">마이페이지</a>
+                            </div>
+                            <div class="point">
+                                <ul>
+                                    <li>
+                                        <span class="tit">방문포인트</span>
+                                        <span class="point visit_point">165,120</span>
+                                    </li>
+                                    <li>
+                                        <span class="tit">캐시포인트</span>
+                                        <span class="point cash_point">639,654</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu">
+                                <ul>
+                                    <li>
+                                        <a href="acc_mypage_iwb.html">마이페이지</a>
+                                    </li>
+                                    <li>
+                                        <a href="adm_main.html" target="_blank">관리자</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">로그아웃</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btm-area">
+                        <img src="../static/images/0_iwb.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gnb-sub-wrap">
+            <div class="gnb-sub js-gnb-sub">
+                <div class="gnb-sub-in">
+                    <ul>
+                        <li>
+                            <strong>TEMPLATES</strong>
+
+                            <div class="img"><img src="../static/images/0_thumbnail_r1.jpg" alt=""></div>
+
+                            <ul>
+                                <li><a href="tpl_greeting.html">인사말</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>BOARD</strong>
+
+                            <div class="img"><img src="../static/images/0_thumbnail_r2.jpg" alt=""></div>
+
+                            <ul>
+                                <li><a href="normal_list.html">일반 게시판</a></li>
+                                <li><a href="gallery_list.html">갤러리 게시판</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>CUSTOM</strong>
+
+                            <div class="img"><img src="../static/images/0_thumbnail_r3.jpg" alt=""></div>
+                        </li>
+                        <li>
+                            <strong>Account</strong>
+
+                            <div class="img"><img src="../static/images/0_thumbnail_r4.jpg" alt=""></div>
+
+                            <ul>
+                                <li><a href="acc_login.html">로그인</a></li>
+                                <li><a href="acc_signup.html">회원가입</a></li>
+                                <li><a href="acc_mypage_iwb.html">마이페이지 웹빌더</a></li>
+                                <li><a href="acc_pw_reset.html">비밀번호 재설정</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>ADMIN</strong>
+
+                            <div class="img"><img src="../static/images/0_thumbnail_r5.jpg" alt=""></div>
+
+                            <ul>
+                                <li><a href="adm_main.html" target="_blank">관리자</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dim"></div>
+        </div>
+    </header>
+    <div class="sub-visual-wrap small"></div>
+    <div class="container">
+        <div class="lnb">
+            <h2>BOARD</h2>
+
+            <nav class="lnb-menu">
+                <ul>
+                    <li><a href="normal_list.html">일반 게시판</a></li>
+                    <li class="on"><a href="gallery_list.html">갤러리 게시판</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <div class="lnb-banner"><a href="#none"><img src="../static/images/0_banner.jpg" alt=""></a></div>
+        </div>
+
+        <section id="content">
+            <div class="sub-visual-wrap small"></div>
+            <div class="sub-content wrapper">
+                <div class="shortcut-menu js-shortcut-menu">
+                    <ul>
+                        <li class="has-sub">
+                            <a href="javascript:void(0);" class="shortcut-menubgcolor"><span>BOARD</span><span class="holder"></span></a>
+
+                            <ul style="display: none;">
+                                <li><a href="normal_list.html" target="_self"><b>일반 게시판</b></a></li>
+                                <li><a href="gallery_list.html" target="_self"><b>갤러리 게시판</b></a></li>
+                                <li><a href="faq.html" target="_self"><b>FAQ</b></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-title">
+                    <h2>갤러리 게시판</h2>
+
+                    <div class="breadcrumb mobile-hidden">
+                        <ul>
+                            <li>Home → BOARD → Gallery Board</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-detail">
+                    <ul class="list-type list4">
+                        <li>
+                            <div class="img"><a href="board_read.html"><img src="../static/images/0_thumbnail_s1.jpg" alt=""></a></div>
+
+                            <p class="text">
+                                <a href="board_read.html">
+                                    <strong class="tit">저녁 눈</strong>
+
+                                    <span class="txt">늦은 저녁때 오는 눈발은 말집 호롱불 밑에 붐비다 늦은 저녁때 오는 눈발은 조랑말 발굽 밑에 붐비다.</span>
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <div class="img"><a href="board_read.html"><img src="../static/images/0_thumbnail_s2.jpg" alt=""></a></div>
+
+                            <p class="text">
+                                <a href="board_read.html">
+                                    <strong class="tit">타는 목마름으로</strong>
+
+                                    <span class="txt">신새벽 뒷골목에 네 이름을 쓴다 민주주의여 내 머리는 너를 잊은지 오래 내 발길은 너를 잊은지 너무도 너무도 오래</span>
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <div class="img"><a href="board_read.html"><img src="../static/images/0_thumbnail_s3.jpg" alt=""></a></div>
+
+                            <p class="text">
+                                <a href="board_read.html">
+                                    <strong class="tit">귀천</strong>
+
+                                    <span class="txt">나 하늘로 돌아가리라 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을 잡고</span>
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <div class="img"><a href="board_read.html"><img src="../static/images/0_thumbnail_s4.jpg" alt=""></a></div>
+
+                            <p class="text">
+                                <a href="board_read.html">
+                                    <strong class="tit">내가 너를</strong>
+
+                                    <span class="txt">내가 너를 얼마나 좋아하는지 너는 몰라도 된다.</span>
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <div class="img"><a href="board_read.html"><img src="../static/images/0_thumbnail_s5.jpg" alt=""></a></div>
+
+                            <p class="text">
+                                <a href="board_read.html">
+                                    <strong class="tit">가난한 사랑 노래</strong>
+
+                                    <span class="txt">가난하다고 해서 외로움을 모르겠는가</span>
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <div class="img"><a href="board_read.html"><img src="../static/images/0_thumbnail_s6.jpg" alt=""></a></div>
+
+                            <p class="text">
+                                <a href="board_read.html">
+                                    <strong class="tit">너에게 묻는다.</strong>
+
+                                    <span class="txt">연탄재 함부로 발로 차지 마라 너는 누구에게 한번이라도 뜨거운 사람이었느냐</span>
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <div class="img"><a href="board_read.html"><img src="../static/images/0_thumbnail_s7.jpg" alt=""></a></div>
+
+                            <p class="text">
+                                <a href="board_read.html">
+                                    <strong class="tit">껍데기는 가라</strong>
+
+                                    <span class="txt">껍데기는 가라 4월도 알맹이만 남기고 껍데기는 가라</span>
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <div class="img"><a href="board_read.html"><img src="../static/images/0_thumbnail_s8.jpg" alt=""></a></div>
+
+                            <p class="text">
+                                <a href="board_read.html">
+                                    <strong class="tit">낙화</strong>
+
+                                    <span class="txt">가야 할 때가 언제인가를 분명히 알고 가는 이의 뒷모습은 얼마나 아름다운가.</span>
+                                </a>
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="paging mobile-hidden margin-top-20">
+                        <button class="btnPrive" onclick="jsCommonPaging(00); return false;"><i>&lt;&lt;</i></button>
+                        <button class="btnPrive" onclick="jsCommonPaging(00); return false;"><i>&lt;</i></button>
+
+                        <a class="on">00</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+
+                        <button class="btnNext" onclick="jsCommonPaging(00); return false;"><i>&gt;</i></button>
+                        <button class="btnLast" onclick="jsCommonPaging(00); return false;"><i>&gt;&gt;</i></button>
+                    </div>
+                    <div class="paging pc-hidden">
+                        <button class="btnPrive" onclick="jsCommonPaging(00); return false;"><i>&lt;&lt;</i></button>
+                        <button class="btnPrive" onclick="jsCommonPaging(00); return false;"><i>&lt;</i></button>
+
+                        <a class="on">00</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">2</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">3</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">4</a>
+                        <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">5</a>
+
+                        <button class="btnNext" onclick="jsCommonPaging(00); return false;"><i>&gt;</i></button>
+                        <button class="btnLast" onclick="jsCommonPaging(00); return false;"><i>&gt;&gt;</i></button>
+                    </div>
+
+                    <div class="btn-area">
+                        <a href="#" class="btn-type btn-white"><i class="ico-up"></i>맨위로</a>
+
+                        <div class="right">
+                            <a href="board_create.html" class="btn-type btn-yellow">등록</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer js-footer">
+        <div class="pc">
+            <div class="util">
+                <div class="wrapper">
+                    <div class="left">
+                        <ul>
+                            <li><a href="acc_policy.html">이용약관</a></li>
+                            <li><a href="acc_policy.html">개인정보처리방침</a></li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <div class="sns">
+                            <a class="platform" href="javascript:void(0);" target="_blank"><img src="../static/images/0_sns_platform.png" alt=""></a>
+                            <a class="youtube" href="javascript:void(0);" target="_blank"><img src="../static/images/0_sns_youtube.png" alt=""></a>
+                            <a class="facebook" href="javascript:void(0);" target="_blank"><img src="../static/images/0_sns_facebook.png" alt=""></a>
+                            <a class="instagram" href="javascript:void(0);" target="_blank"><img src="../static/images/0_sns_instagram.png" alt=""></a>
+                            <a class="kakao" href="javascript:void(0);" target="_blank"><img src="../static/images/0_sns_kakao.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="footer-btm">
+                    <div class="left">
+                        <h1><img src="../static/images/0_logo.svg" alt=""></h1>
+
+                        <div class="addr">
+                            <p>사업자등록번호 : 123-45-67890, 통신판매업신고 : 0000-서울금천-12345</p>
+                            <p>주소 : 우) 08595 서울시 금천구 범안대로 1142, 4층(가산동, 하우스디 더 스카이밸리 가산2차)</p>
+                            <p>호스팅 서비스사업자 : 이룸 주식회사</p>
+                            <p class="copyright">ⓒ IRUM Inc, All RIGHTS RESERVED.</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="cs-info">
+                            <p>평일 09:00-12:00, 13:00~18:00</p>
+
+                            <div class="tel">
+                                <p>TEL: 070-0000-0000</p>
+                                <p>FAX: 070-0000-0000</p>
+                            </div>
+
+                            <p>E-MAIL: irum@irum.life</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile">
+            <div class="policy">
+                <a href="acc_policy.html">이용약관</a>
+                <a href="acc_policy.html">개인정보처리방침</a>
+            </div>
+            <div class="client">
+                <button class="btn">이룸 주식회사 사업자 정보</button>
+
+                <div class="info">
+                    <p>
+                        <span>대표자 : 박성호</span>
+                        <span class="bar"></span>
+                        <span>사업자번호 : 123-45-67890</span>
+                    </p>
+                    <p>통신판매업 : 0000-서울금천-12345</p>
+                    <p>주소 : 우) 08595 서울시 금천구 범안대로 1142, 4층(가산동, 하우스디 더 스카이밸리 가산2차)</p>
+                </div>
+
+                <p class="copyright">ⓒ IRUM Inc, All RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

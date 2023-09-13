@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이룸 웹빌더 - 관리자</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+
+    <script type="text/javascript" language="javascript" src="../static/js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" language="javascript" src="../static/js/jquery-ui_admin.js"></script>
+    <script type="text/javascript" language="javascript" src="../static/js/ui_admin.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../static/css/jquery-ui.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/admin.css">
+</head>
+<body>
+<div class="wrap">
+    <header class="header active">
+        <h1 class="logo"><a href="adm_main.html"><img src="../static/images/adm_logo.jpg"></a></h1>
+
+        <div class="user-menu">
+            <button class="btn-big">이룸 주식회사</button>
+            <button class="btn"><a href="index.html">웹사이트</a></button>
+            <button class="btn"><a href="index.html">로그아웃</a></button>
+        </div>
+        </div>
+
+        <nav class="gnb-menu">
+            <ul class="gnb">
+                <li><a href="adm_member_list.html">사용자관리</a>
+                    <ul>
+                        <li><a href="adm_member_list.html">일반회원</a></li>
+                    </ul>
+                </li>
+                <li><a href="adm_html_list.html">콘텐츠관리</a>
+                    <ul>
+                        <li><a href="adm_html_list.html">일반(HTML)</a></li>
+                    </ul>
+                </li>
+                <li><a href="adm_service_info.html">서비스관리</a>
+                    <ul>
+                        <li><a href="adm_service_info.html">서비스정보</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <ul class="etc-menu">
+            <li><a href="https://analytics.google.com/" target="_blank">구글 애널리틱스</a></li>
+            <li><a href="#none">원격접속</a></li>
+        </ul>
+    </header>
+
+    <section class="container">
+        <div class="tit-wrap">
+            <h2 class="tit-type"><b>메뉴 생성</b> <span class="tag-txt">목록</span></h2>
+
+            <div class="right">
+                <ul class="path">
+                    <li>홈</li>
+                    <li>웹구조관리</li>
+                    <li><b>메뉴 생성</b></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contents">
+
+        </div>
+    </section>
+</div>
+<div class="layer-popup" id="" style="display:block;">
+    <div class="mask"></div>
+    <div class="popup" style="width:800px;">
+        <button type="button" onclick="$('#popupMail').hide();" class="close">닫기</button>
+
+        <div class="pop-header"><p class="title">콘텐츠 관리</p></div>
+        <div class="pop-body">
+            <div class="inner">
+                <form>
+                    <div class="board-view">
+                        <table>
+                            <colgroup>
+                                <col style="width:150px;">
+                                <col style="width:auto;">
+                                <col style="width:150px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <thead>
+                                <tr class="bg-gray line">
+                                    <th>메뉴 명</th>
+                                    <td><input type="text"></td>
+                                    <th>구분</th>
+                                    <td>게시판</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>게시물 배포</th>
+                                    <td>
+                                        <label class="input-checkbox type-2">
+                                            <input type="checkbox" name="user_extra_info"><span class="ic"></span>
+                                            <span class="t">체크 시 빅포 플랫폼 배포</span>
+                                        </label>
+                                    </td>
+                                    <th>제목 이미지</th>
+                                    <td>
+                                        <div class="input-file-add">
+                                            <div class="inp">
+                                                <input type="text">
+                                            </div>
+
+                                            <button type="button" class="btn">찾기</button>
+
+                                            <input type="file">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>메뉴 이미지 On</th>
+                                    <td>
+                                        <div class="input-file-add">
+                                            <div class="inp">
+                                                <input type="text">
+                                            </div>
+
+                                            <button type="button" class="btn">찾기</button>
+
+                                            <input type="file">
+                                        </div>
+                                    </td>
+                                    <th>메뉴 이미지 Off</th>
+                                    <td>
+                                        <div class="input-file-add">
+                                            <div class="inp">
+                                                <input type="text">
+                                            </div>
+
+                                            <button type="button" class="btn">찾기</button>
+
+                                            <input type="file">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>목록 유형</th>
+                                    <td>
+                                        <label class="input-radio">
+                                            <input type="radio" checked="checked" name="master_email"><span class="ic"></span>
+                                            <span class="t">A 타입</span>
+                                        </label>
+                                        <label class="input-radio">
+                                            <input type="radio" name="master_email"><span class="ic"></span>
+                                            <span class="t">B 타입</span>
+                                        </label>
+                                    </td>
+                                    <th>목록 개수</th>
+                                    <td>
+                                        <select name="grade">
+                                            <option value="6">6</option>
+                                            <option value="8">8</option>
+                                            <option value="10">10</option>
+                                            <option value="12">12</option>
+                                            <option value="16">16</option>
+                                            <option value="20">20</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <thead>
+                                <tr class="bg-gray line">
+                                    <th colspan="4">상단 HTML</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="4">
+                                        <textarea style="margin:10px 0;height:170px;"></textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="btn-box alignR">
+                        <a href="#none" class="btn-type-1 btn-lightgray">닫기</a>
+                        <a href="#none" class="btn-type-1 btn-yellow">확인</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

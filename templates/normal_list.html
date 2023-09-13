@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>이룸 웹빌더</title>
+
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=no">
+
+    <script type="text/javascript" language="javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><!-- 기본 JS -->
+    <script type="text/javascript" language="javascript" src="../static/js/swiper.min.js"></script><!-- 슬라이드 JS -->
+    <script type="text/javascript" language="javascript" src="../static/js/ui-front.js"></script><!-- 고객 맞춤 UI JS -->
+
+    <link type="text/css" rel="stylesheet" href="../static/css/iwb.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/jquery.bxslider.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/swiper.min.css">
+</head>
+<body>
+<div class="wrap">
+    <header class="header js-header">
+        <div class="wrapper">
+            <a href="javascript:void(0);" class="mMenu"></a>
+
+            <h1 class="logo"><a href="index.html"><img src="../static/images/0_logo.svg" alt=""></a></h1>
+
+            <div class="gnb-menu js-gnb-menu">
+                <div class="mask"></div>
+                <div class="inner">
+                    <div class="gnb-top">
+                        <strong>IWB</strong>
+
+                        <p class="txt">로그인 및 회원가입을 하시면 더 많은<br>정보와 혜택을 받으실 수 있습니다.</p>
+
+                        <div class="menu">
+                            <a href="acc_signup.html" class="btn-signup">회원가입</a>
+                            <a href="acc_login.html" class="btn-login">로그인</a>
+                        </div>
+                    </div>
+
+                    <nav class="list">
+                        <ul>
+                            <li><a href="tpl_greeting.html">TEMPLATES</a>
+                                <ul>
+                                    <li><a href="tpl_greeting.html" target="_self"><b>인사말</b></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="normal_list.html">BOARD</a>
+                                <ul>
+                                    <li><a href="normal_list.html">일반 게시판</a></li>
+                                    <li><a href="gallery_list.html">갤러리 게시판</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0);">CUSTOM</a></li>
+                            <li><a href="javascript:void(0);">ACCOUNT</a>
+                                <ul>
+                                    <li><a href="acc_login.html">로그인</a></li>
+                                    <li><a href="acc_signup.html">회원가입</a></li>
+                                    <li><a href="acc_pw_reset.html">비밀번호 재설정</a></li>
+                                    <li><a href="acc_mypage_iwb.html">마이페이지 웹빌더</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="adm_main.html" target="_blank">ADMIN</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="language js-language">
+                        <a href="javascript:void(0);" class="selected"><em>kr</em> <span class="holder"></span></a>
+
+                        <ul>
+                            <li class="en"><a href="javascript:void(0);">English</a></li>
+                            <li class="ko"><a href="javascript:void(0);">한국어</a></li>
+                          </ul>
+                    </div>
+                    <div class="profile">
+                        <a href="javascript:void(0);" onclick="$('.profile').toggleClass('active');">
+                            <div class="thumb"><img src="../static/images/0_profile.jpg"></div>
+                        </a>
+
+                        <div class="popup">
+                            <div class="info">
+                                <div class="thumbnail"><img src="../static/images/0_profile.jpg"></div>
+
+                                <p><b class="name">이룸</b>님</p>
+
+                                <a href="acc_mypage_iwb.html">마이페이지</a>
+                            </div>
+                            <div class="point">
+                                <ul>
+                                    <li>
+                                        <span class="tit">방문포인트</span>
+                                        <span class="point visit_point">165,120</span>
+                                    </li>
+                                    <li>
+                                        <span class="tit">캐시포인트</span>
+                                        <span class="point cash_point">639,654</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu">
+                                <ul>
+                                    <li>
+                                        <a href="acc_mypage_iwb.html">마이페이지</a>
+                                    </li>
+                                    <li>
+                                        <a href="adm_main.html" target="_blank">관리자</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">로그아웃</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btm-area">
+                        <img src="../static/images/0_iwb.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gnb-sub-wrap">
+            <div class="gnb-sub js-gnb-sub">
+                <div class="gnb-sub-in">
+                    <ul>
+                        <li>
+                            <strong>TEMPLATES</strong>
+
+                            <div class="img"><img src="../static/images/0_thumbnail_r1.jpg" alt=""></div>
+
+                            <ul>
+                                <li><a href="tpl_greeting.html">인사말</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>BOARD</strong>
+
+                            <div class="img"><img src="../static/images/0_thumbnail_r2.jpg" alt=""></div>
+
+                            <ul>
+                                <li><a href="normal_list.html">일반 게시판</a></li>
+                                <li><a href="gallery_list.html">갤러리 게시판</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>CUSTOM</strong>
+
+                            <div class="img"><img src="../static/images/0_thumbnail_r3.jpg" alt=""></div>
+                        </li>
+                        <li>
+                            <strong>Account</strong>
+
+                            <div class="img"><img src="../static/images/0_thumbnail_r4.jpg" alt=""></div>
+
+                            <ul>
+                                <li><a href="acc_login.html">로그인</a></li>
+                                <li><a href="acc_signup.html">회원가입</a></li>
+                                <li><a href="acc_mypage_iwb.html">마이페이지 웹빌더</a></li>
+                                <li><a href="acc_pw_reset.html">비밀번호 재설정</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>ADMIN</strong>
+
+                            <div class="img"><img src="../static/images/0_thumbnail_r5.jpg" alt=""></div>
+
+                            <ul>
+                                <li><a href="adm_main.html" target="_blank">관리자</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dim"></div>
+        </div>
+    </header>
+
+    <div class="sub-visual-wrap small"></div>
+    <div class="container">
+        <div class="lnb">
+            <h2>BOARD</h2>
+
+            <nav class="lnb-menu">
+                <ul>
+                    <li class="on"><a href="normal_list.html">일반 게시판</a></li>
+                    <li><a href="gallery_list.html">갤러리 게시판</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <div class="lnb-banner"><a href="#none"><img src="../static/images/0_banner.jpg" alt=""></a></div>
+        </div>
+
+        <section id="content">
+            <div class="sub-visual-wrap small"></div>
+            <div class="sub-content wrapper">
+                <div class="shortcut-menu js-shortcut-menu">
+                    <ul>
+                        <li class="has-sub">
+                            <a href="javascript:void(0);" class="shortcut-menubgcolor"><span>BOARD</span><span class="holder"></span></a>
+
+                            <ul style="display: none;">
+                                <li><a href="normal_list.html" target="_self"><b>일반 게시판</b></a></li>
+                                <li><a href="gallery_list.html" target="_self"><b>갤러리 게시판</b></a></li>
+                                <li><a href="faq.html" target="_self"><b>FAQ</b></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-title">
+                    <h2>일반 게시판</h2>
+
+                    <div class="breadcrumb mobile-hidden">
+                        <ul>
+                            <li>Home → BOARD → Normal Board</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-detail">
+                    <div class="board-top">
+                        <div class="left">
+                            <p class="total">전체 <b>0000</b>개 </p>
+                        </div>
+                        <div class="right">
+                            <form>
+                                <div class="board-search">
+                                    <span class="input">
+                                        <input type="text">
+                                        <button class="btn-search">검색</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="mobile-hidden">
+                        <div class="board-type">
+                            <table>
+                                <colgroup>
+                                    <col style="width:10%;">
+                                    <col style="width:60%;">
+                                    <col style="width:15%;">
+                                    <col style="width:15%;">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>제목</th>
+                                        <th>작성자</th>
+                                        <th>작성일자</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>공지</td>
+                                        <td class="align-left"><a href="board_read.html">늦은 저녁때 오는 눈발은 말집 호롱불 밑에 붐비다.</a></td>
+                                        <td>박용래</td>
+                                        <td>0000-00-00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>00</td>
+                                        <td class="align-left"><a href="board_read.html">자연을 사랑하는 병이 깊어 대나무 숲에 누웠더니, 팔백 리나 되는 강원도를 맡기시니 아아, 임금의 은혜야말로 더욱더 끝이 없도다.</a></td>
+                                        <td>정철</td>
+                                        <td>0000-00-00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>00</td>
+                                        <td class="align-left"><a href="board_read.html">엄마야 누나야 강변 살자</a></td>
+                                        <td>김소월</td>
+                                        <td>0000-00-00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>00</td>
+                                        <td class="align-left"><a href="board_read.html">님은 갔습니다. 아아, 사랑하는 나의 님은 갔습니다.</a></td>
+                                        <td>한용운</td>
+                                        <td>0000-00-00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>00</td>
+                                        <td class="align-left"><a href="board_read.html">넓은 벌 동쪽 끝으로 옛 이야기 지줄대는 실개천이 휘돌아 나가고~</a></td>
+                                        <td>정지용</td>
+                                        <td>0000-00-00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>00</td>
+                                        <td class="align-left"><a href="board_read.html">자연을 사랑하는 병이 깊어 대나무 숲에 누웠더니, 팔백 리나 되는 강원도를 맡기시니 아아, 임금의 은혜야말로 더욱더 끝이 없도다.</a></td>
+                                        <td>한용운</td>
+                                        <td>0000-00-00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>00</td>
+                                        <td class="align-left"><a href="board_read.html">내 마음은 호수요, 그대 노 저어 오오</a></td>
+                                        <td>김동명</td>
+                                        <td>0000-00-00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>00</td>
+                                        <td class="align-left"><a href="board_read.html">이것은 소리 없는 아우성</a></td>
+                                        <td>유치환</td>
+                                        <td>0000-00-00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>00</td>
+                                        <td class="align-left"><a href="board_read.html">모가지가 길어서 슬픈 짐승이여 언제나 점잖은 편 말이 없구나</a></td>
+                                        <td>노천명</td>
+                                        <td>0000-00-00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>00</td>
+                                        <td class="align-left"><a href="board_read.html">얇은 사 하이얀 고깔은 고이 접어서 나빌레라</a></td>
+                                        <td>조지훈</td>
+                                        <td>0000-00-00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="paging">
+                            <button class="btnPrive" onclick="jsCommonPaging(00); return false;"><i>&lt;&lt;</i></button>
+                            <button class="btnPrive" onclick="jsCommonPaging(00); return false;"><i>&lt;</i></button>
+
+                            <a class="on">0000</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">000</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">0</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">000000</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00000</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">0000</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">000</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">0</a>
+
+                            <button class="btnNext" onclick="jsCommonPaging(00); return false;"><i>&gt;</i></button>
+                            <button class="btnLast" onclick="jsCommonPaging(00); return false;"><i>&gt;&gt;</i></button>
+                        </div>
+                    </div>
+                    <div class="pc-hidden">
+                        <div class="board-mobile">
+                            <ul>
+                                <li>
+                                    <a href="http://html.irum.life/iwb/templates/board_read.html" class="article">
+                                        <div class="desc">
+                                            <p class="title">가난하다고 해서 외로움을 모르겠는가</p>
+
+                                            <div class="info">
+                                                <div class="date">신경림</div>
+                                                <div class="date">0000-00-00</div>
+                                                <div class="date mobile-hidden">조회 1.8만</div>
+                                            </div>
+                                        </div>
+                                        <div class="img">
+                                            <img src="../static/images/0_thumnail_2.jpg" alt="">
+                                        </div>
+                                        <div class="reple">
+                                            <b>200</b>
+                                            <span>Point</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="board_read.html" class="article">
+                                        <div class="desc">
+                                            <p class="title">죽는 날까지 하늘을 우러러 한 점 부끄럼이 없기를, 잎새에 이는 바람에도 나는 괴로워했다.</p>
+
+                                            <div class="info">
+                                                <div class="date">윤동주</div>
+                                                <div class="date">0000-00-00</div>
+                                                <div class="date mobile-hidden">조회 9587</div>
+                                            </div>
+                                        </div>
+                                        <div class="img">
+                                            <img src="../static/images/0_thumnail_2.jpg" alt="">
+                                        </div>
+                                        <div class="reple">
+                                            <b>1623</b>
+                                            <span>댓글</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="board_read.html" class="article">
+                                        <div class="desc">
+                                            <p class="title">내가 그의 이름을 불러 주기 전에는 그는 다만 하나의 몸짓에 지나지 않았다.</p>
+
+                                            <div class="info">
+                                                <div class="date">김춘수</div>
+                                                <div class="date">0000-00-00</div>
+                                                <div class="date mobile-hidden">조회 4579</div>
+                                            </div>
+                                        </div>
+                                        <div class="img">
+                                            <img src="../static/images/0_thumnail_2.jpg" alt="">
+                                        </div>
+                                        <div class="reple">
+                                            <b>6524</b>
+                                            <span>댓글</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="board_read.html" class="article">
+                                        <div class="desc">
+                                            <p class="title">산아, 우뚝 솟은 푸른 산아, 철철철 흐르듯 짙푸른 산아</p>
+
+                                            <div class="info">
+                                                <div class="date">박두진</div>
+                                                <div class="date">0000-00-00</div>
+                                                <div class="date mobile-hidden">조회 4789</div>
+                                            </div>
+                                        </div>
+                                        <div class="img">
+                                            <img src="../static/images/0_thumnail_2.jpg" alt="">
+                                        </div>
+                                        <div class="reple">
+                                            <b>249</b>
+                                            <span>댓글</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="board_read.html" class="article">
+                                        <div class="desc">
+                                            <p class="title">신새벽 뒷골목에 네 이름을 쓴다 민주주의여</p>
+
+                                            <div class="info">
+                                                <div class="date">김지하</div>
+                                                <div class="date">0000-00-00</div>
+                                                <div class="date mobile-hidden">조회 6457</div>
+                                            </div>
+                                        </div>
+                                        <div class="img">
+                                            <img src="../static/images/0_thumnail_2.jpg" alt="">
+                                        </div>
+                                        <div class="reple">
+                                            <b>687</b>
+                                            <span>댓글</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="paging">
+                            <button class="btnPrive" onclick="jsCommonPaging(00); return false;"><i>&lt;&lt;</i></button>
+                            <button class="btnPrive" onclick="jsCommonPaging(00); return false;"><i>&lt;</i></button>
+
+                            <a class="on">00000</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">0000</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">000</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">00</a>
+                            <a href="javascript:void(0);" onclick="jsCommonPaging(00); return false;">0</a>
+
+                            <button class="btnNext" onclick="jsCommonPaging(00); return false;"><i>&gt;</i></button>
+                            <button class="btnLast" onclick="jsCommonPaging(00); return false;"><i>&gt;&gt;</i></button>
+                        </div>
+                    </div>
+                    <div class="btn-area">
+                        <a href="#" class="btn-type btn-white"><i class="ico-up"></i>맨위로</a>
+
+                        <div class="right">
+                            <a href="board_create.html" class="btn-type btn-yellow">등록</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer js-footer">
+        <div class="pc">
+            <div class="util">
+                <div class="wrapper">
+                    <div class="left">
+                        <ul>
+                            <li><a href="acc_policy.html">이용약관</a></li>
+                            <li><a href="acc_policy.html">개인정보처리방침</a></li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <div class="sns">
+                            <a class="platform" href="javascript:void(0);" target="_blank"><img src="../static/images/0_sns_platform.png" alt=""></a>
+                            <a class="youtube" href="javascript:void(0);" target="_blank"><img src="../static/images/0_sns_youtube.png" alt=""></a>
+                            <a class="facebook" href="javascript:void(0);" target="_blank"><img src="../static/images/0_sns_facebook.png" alt=""></a>
+                            <a class="instagram" href="javascript:void(0);" target="_blank"><img src="../static/images/0_sns_instagram.png" alt=""></a>
+                            <a class="kakao" href="javascript:void(0);" target="_blank"><img src="../static/images/0_sns_kakao.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="footer-btm">
+                    <div class="left">
+                        <h1><img src="../static/images/0_logo.svg" alt=""></h1>
+
+                        <div class="addr">
+                            <p>사업자등록번호 : 123-45-67890, 통신판매업신고 : 0000-서울금천-12345</p>
+                            <p>주소 : 우) 08595 서울시 금천구 범안대로 1142, 4층(가산동, 하우스디 더 스카이밸리 가산2차)</p>
+                            <p>호스팅 서비스사업자 : 이룸 주식회사</p>
+                            <p class="copyright">ⓒ IRUM Inc, All RIGHTS RESERVED.</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="cs-info">
+                            <p>평일 09:00-12:00, 13:00~18:00</p>
+
+                            <div class="tel">
+                                <p>TEL: 070-0000-0000</p>
+                                <p>FAX: 070-0000-0000</p>
+                            </div>
+
+                            <p>E-MAIL: irum@irum.life</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile">
+            <div class="policy">
+                <a href="acc_policy.html">이용약관</a>
+                <a href="acc_policy.html">개인정보처리방침</a>
+            </div>
+            <div class="client">
+                <button class="btn">이룸 주식회사 사업자 정보</button>
+
+                <div class="info">
+                    <p>
+                        <span>대표자 : 박성호</span>
+                        <span class="bar"></span>
+                        <span>사업자번호 : 123-45-67890</span>
+                    </p>
+                    <p>통신판매업 : 0000-서울금천-12345</p>
+                    <p>주소 : 우) 08595 서울시 금천구 범안대로 1142, 4층(가산동, 하우스디 더 스카이밸리 가산2차)</p>
+                </div>
+
+                <p class="copyright">ⓒ IRUM Inc, All RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
