@@ -6,6 +6,7 @@
 # pip install keras
 # pip install scikit-learn
 # pip install kiwipiepy
+# pip install tensorflow
 
 import bs4
 from bs4 import BeautifulSoup
@@ -44,7 +45,6 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 
 import pymysql
-
 
 
 stopwords = ['도', '는', '다', '의', '가', '이', '은', '한', '에', '하', '고', '을', '를', '인', '듯', '과', '와', '네', '들', '듯', '지', '임', '게']
@@ -137,7 +137,6 @@ def train_data():
 # GRU 모델
 def model_gru(X_train, y_train, vocab_size):
 
-
     embedding_dim = 100
     hidden_units = 256 
 
@@ -153,15 +152,16 @@ def model_gru(X_train, y_train, vocab_size):
     history = model.fit(X_train, y_train, epochs=20, callbacks=[es, mc], batch_size=64, validation_split=0.2)
 
 
-# 사전학습모델 생성
+# 사전학습 데이터셋, 토크나이저 생성
 X_train, y_train, X_test, y_test, vocab_size, tokenizer, max_len = train_data()
 
-# 모델 학습
+
+# 모델 학습 - 파일이 존재할경우 불필요
 # model_gru(X_train, y_train, vocab_size)  
 
 # 모델 평가
 loaded_model = load_model('gru_256.h5')  #저장한 모델을 불러옴
-print('GRU 모델 정확도 : %.4f' % (loaded_model.evaluate(X_test, y_test)[1]))
+# print('GRU 모델 정확도 : %.4f' % (loaded_model.evaluate(X_test, y_test)[1]))
 
 
 
@@ -183,20 +183,18 @@ def review_make(url, driver):
 
     # 첫번째 페이지 댓글 저장
     review_soup = soup.select("#reviewListFragment  div.review-contents > div.review-contents__text")
+    if review_soup == []:
+        print("종료")
+        return
+    
     for review in review_soup:
         review_list.append(review.get_text().strip())
-
-    # 첫번째 페이지 평점 저장
-    # grade_soup = soup.select("#reviewListFragment  div.review-list__rating-wrap > span > span > span")
-    # for grade in grade_soup:
-    #     grade_num= re.sub(r'[^0-9]', '', str(grade)) 
-    #     # 평점이 4, 5점이면 positive(1), 3점 이하면 negative(0) 
-    #     grade_list.append(1 if int(grade_num) >= 80 else 0) 
-
+        
 
     # 댓글저장 최대 반복횟수 계산
     review_num = soup.select("#reviewListFragment > div.nslist_bottom > div.box_page_msg") 
     review_num_max = int(review_num[0].get_text().strip().split()[0])
+
 
     btn_num = 0
     # 각 block의 첫번째 댓글목록을 불러와서 댓글 저장
@@ -258,12 +256,14 @@ def tokenizing_pos(dataframe):
     
     for sentence in dataframe['review']:
         for token in kiwi.tokenize(sentence):
+            # 단어 중에서 명사만 추출
             if token[1] == 'NNG': 
                 word_list.append(token[0])
                 noun_list.append(token[1])
 
     words['word'] = word_list
-    word_pos= words['word'].value_counts().index[:20]
+    # 가장 많이 나온 명사들만 가져옴
+    word_pos= words['word'].value_counts().index[:20] 
     
     break_point = 0
     for word in word_pos:
@@ -272,65 +272,43 @@ def tokenizing_pos(dataframe):
         
         if '핏' in word or '디자인' in word or '코디' in word:
             if '핏이 예뻐요' not in keyword:
-                keyword = keyword + '핏이 예뻐요 '
+                keyword = keyword + '핏이 예뻐요, '
                 break_point += 1
 
         if '가성비' in word or '가격' in word:
             if '가성비가 좋아요' not in keyword:
-                keyword = keyword + '가성비가 좋아요 '
+                keyword = keyword + '가성비가 좋아요, '
                 break_point += 1
 
         if '기장' in word:
             if '기장이 딱 맞아요' not in keyword:
-                keyword = keyword + '기장이 딱 맞아요 '
+                keyword = keyword + '기장이 딱 맞아요, '
                 break_point += 1
 
         if '두께' in word:
             if '두께감이 적당해요' not in keyword:
-                keyword = keyword + '두께감이 적당해요 '
+                keyword = keyword + '두께감이 적당해요, '
                 break_point += 1
 
         if '재질' in word or '소재' in word or '원단' in word:
             if '좋은 소재를 사용해요' not in keyword:
-                keyword = keyword + '좋은 소재를 사용해요 '
+                keyword = keyword + '좋은 소재를 사용해요, '
                 break_point += 1
 
         if '색' in word or '색상' in word or '색감' in word:
             if '실제 색감이 예뻐요' not in keyword:
-                keyword = keyword + '실제 색감이 예뻐요 '
+                keyword = keyword + '실제 색감이 예뻐요, '
                 break_point += 1
 
         if '운동' in word:
             if '운동할때 입기 좋아요' not in keyword:
-                keyword = keyword + '운동할때 입기 좋아요 '
+                keyword = keyword + '운동할때 입기 좋아요, '
                 break_point += 1
             
+    keyword = keyword[:-3]
     return keyword
 
 
-
-
-
-
-# mariadb 접속
-conn = pymysql.connect(
-        user="root",
-        password="0000",
-        host="localhost",
-        port=3306,
-        database="style_similar",
-        charset='utf8',
-    )
-
-cursor = conn.cursor()
-
-
-# SQL 쿼리 실행 - mall_image_id, mall_url을 가져옴
-sql_query = "SELECT mall_image_id, mall_url  FROM board_mall"
-cursor.execute(sql_query)
-
-# 결과 가져오기
-data = cursor.fetchall()
 
 
 
@@ -339,56 +317,82 @@ chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
-# 결과 출력
-count = 0
-for row in data:
-    mall_image_id = row[0]  # mall_image_id
-    url = row[1]            # mall_url 
-    review_dataset = review_make(url, driver)
-    sentiment_dataset = sentiment_predict(review_dataset)
+# mariadb 접속
+conn = pymysql.connect(
+        user="style_similar",
+        password="tmxkdlftlalffj9446!!",
+        host="192.168.0.100",
+        port=3306,
+        database="style_similar",
+        charset='utf8',
+    )
 
-    # mall_image_id column 추가 -> 각 리뷰들이 어떤 상품의 리뷰인지 표시
-    sentiment_dataset['mall_image_id'] = mall_image_id
-
-    # DataFrame을 리스트로 변환
-    data_board_review = sentiment_dataset.values.tolist()
+with conn.cursor() as cursor:
+    # Similarity에 포함되는 상품 중에서 댓글 데이터가 없는 상품의 id를 선택
+    sql_query = "SELECT mall_image_id, mall_url\
+                FROM contents_mall\
+                WHERE mall_image_id NOT IN (SELECT mall_image_id_id FROM contents_review)\
+                AND mall_image_id IN (SELECT mall_image_id_id FROM contents_similarity)"
+    cursor.execute(sql_query)
+    target_data_list = cursor.fetchall()
     
-    print(data_board_review)
+    print("상품리뷰 데이터셋 개수 : ", len(target_data_list))
 
-    # board_review에 댓글, 댓글감성분석결과, 상품 id를 db에 저장
-    with conn.cursor() as cursor:
-        for data in data_board_review:
-            sql = "INSERT IGNORE INTO board_review (review, review_sentiment, mall_image_id_id) VALUES (%s, %s, %s)"
-            cursor.execute(sql, data)
-            conn.commit()
+    for target_data in target_data_list:
+        print(target_data, "리뷰 데이터 생성 시작")
+        mall_image_id = target_data[0]
+        mall_url = target_data[1]
+
+        # 리뷰 생성
+        review_dataset = review_make(mall_url, driver)
+
+        # 리뷰가 없을 경우 패스
+        if review_dataset is None:
+            continue
+        
+        #감성분석 진행
+        sentiment_dataset = sentiment_predict(review_dataset)
+
+        # mall_image_id column 추가 -> 각 리뷰들이 어떤 상품의 리뷰인지 표시
+        sentiment_dataset['mall_image_id'] = mall_image_id
+
+        # DataFrame을 리스트로 변환
+        data_board_review = sentiment_dataset.values.tolist()
+        
+        # board_review에 댓글, 댓글감성분석결과, 상품 id를 db에 저장
+        with conn.cursor() as cursor:
+            for data in data_board_review:
+                sql = "INSERT IGNORE INTO contents_review (review, review_sentiment, mall_image_id_id) VALUES (%s, %s, %s)"
+                cursor.execute(sql, data)
+                conn.commit()
 
 
 
 
-    # 댓글이 긍정인 데이터셋을 입력
-    sentiment_dataset_pos = sentiment_dataset[sentiment_dataset['sentiment']==1]
-    review_keyword = tokenizing_pos(sentiment_dataset_pos)
+            # 댓글이 긍정인 데이터셋을 입력
+            sentiment_dataset_pos = sentiment_dataset[sentiment_dataset['sentiment']==1]
+            review_keyword = tokenizing_pos(sentiment_dataset_pos)
 
-    sentiment_percent = sentiment_dataset['sentiment'].value_counts(normalize=True)[1]
-    sentiment_percent = "{:.2%}".format(sentiment_percent) 
-    
-    data_board_review = [review_keyword, mall_image_id]
+            sentiment_percent = sentiment_dataset['sentiment'].value_counts(normalize=True)[1]
+            review_sentiment = "{:.2%}".format(sentiment_percent) 
+            
+            data_board_review = [review_keyword, review_sentiment, mall_image_id]
 
-    # board_mall에 상품 id에 keyword들을 업데이트
-    with conn.cursor() as cursor:
-        sql = "UPDATE board_mall SET review_keyword = %s WHERE mall_image_id = %s"
-        cursor.execute(sql, data_board_review)
-        conn.commit()
-    
-    count += 1
+            # board_mall에 상품 id에 keyword들을 업데이트
+            with conn.cursor() as cursor:
+                sql = "UPDATE contents_mall SET review_keyword = %s, review_sentiment = %s WHERE mall_image_id = %s"
+                cursor.execute(sql, data_board_review)
 
-    if count == 10:
-        break
+                conn.commit()
+                
+            print(target_data, "리뷰 데이터 저장 완료")
+            
 
 # 연결 종료
-cursor.close()
 conn.close()
 driver.quit()
 
 
 print("전체 크롤링, db저장 완료!!!")
+
+

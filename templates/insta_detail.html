@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="contents wrapper">
+            <div class="styling-product-wrap">
+                <div class="store-title">Name : {{insta_data.insta_celeb}}</div>
+                
+                <div class="cate-path">category  >  {{insta_data.insta_product_category}}</div>
+                <div class="product-detail">
+                    <div class="prd-img">
+                        <div class="prd">
+                            <img src="{% static 'images/insta/' %}{{ insta_image_id }}.jpg" alt="{{ insta_image_id }}">
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <div class="brand"><span>Brand : {{insta_data.insta_product_brand}}</span></div>
+                        <div class="prd-name">Product : {{insta_data.insta_product_name}}</div>
+
+                        <div class="bottom">
+                            <div class="insta-info">
+                                <div>
+                                    <b>@{{insta_data.celeb_insta_id_id}}</b>
+                                    <span>instagram</span>
+                                </div>
+                                <div>
+                                    <b>{{insta_data.celeb_insta_id.celeb_follower}}</b>
+                                    <span>follower</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-list">
+                    <ul>
+                        {% for similarity_data in similarity_datas %}
+                        <li>
+                            <a href="{% url 'product_detail' mall_image_id=similarity_data.mall_image_id_id %}">
+                                <div class="prd-img">
+                                        <img src="{% static 'images/musinsa/' %}{{ similarity_data.mall_image_id.mall_category }}/{{ similarity_data.mall_image_id_id }}.jpg" alt="{{ similarity_data.mall_image_id.mall_category }}">
+
+                                    </div>
+                                </div>
+                                <div class="desc">
+                                    <span class="brand"><span>Brand : {{similarity_data.mall_image_id.mall_brand}}</span></span>
+                                    <b class="prd-name">Name : {{similarity_data.mall_image_id.mall_name}}</b>
+                                    <div class="price">Price : {{similarity_data.mall_image_id.mall_price}}</div>
+                                </div>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

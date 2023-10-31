@@ -8,6 +8,7 @@
 ;(function($) {
 
   var defaults = {
+
     // GENERAL
     mode: 'horizontal',
     slideSelector: '',
@@ -88,7 +89,7 @@
     onSlideNext: function() { return true; },
     onSlidePrev: function() { return true; },
     onSliderResize: function() { return true; },
-    onAutoChange: function() { return true; } //calls when auto slides starts and stops
+	onAutoChange: function() { return true; } //calls when auto slides starts and stops
   };
 
   $.fn.bxSlider = function(options) {
@@ -255,13 +256,13 @@
       slider.active.last = slider.settings.startSlide === getPagerQty() - 1;
       // if video is true, set up the fitVids plugin
       if (slider.settings.video) { el.fitVids(); }
-      //preloadImages
-      if (slider.settings.preloadImages === 'none') { 
-          preloadSelector = null; 
-      }
+	  //preloadImages
+	  if (slider.settings.preloadImages === 'none') { 
+		  preloadSelector = null; 
+	  }
       else if (slider.settings.preloadImages === 'all' || slider.settings.ticker) { 
-          preloadSelector = slider.children; 
-      }
+		  preloadSelector = slider.children; 
+	  }
       // only check for control addition if not in "ticker" mode
       if (!slider.settings.ticker) {
         // if controls are requested, add them
@@ -276,7 +277,7 @@
       } else {
         slider.settings.pager = false;
       }
-      if (preloadSelector === null) {
+	  if (preloadSelector === null) {
         start();
       } else {
         loadElements(preloadSelector, start);
@@ -486,7 +487,7 @@
             breakPoint = counter + getNumberSlidesShowing();
             counter += slider.settings.moveSlides <= getNumberSlidesShowing() ? slider.settings.moveSlides : getNumberSlidesShowing();
           }
-          return counter;
+		  return counter;
         }
       // if moveSlides is 0 (auto) divide children length by sides showing, then round up
       } else {
@@ -906,9 +907,9 @@
         }
       }
     };
-    /* auto start and stop functions */
-    var windowFocusHandler = function() { el.startAuto(); };
-    var windowBlurHandler = function() { el.stopAuto(); };
+	/* auto start and stop functions */
+	var windowFocusHandler = function() { el.startAuto(); };
+	var windowBlurHandler = function() { el.stopAuto(); };
     /**
      * Initializes the auto process
      */
@@ -1116,12 +1117,12 @@
         slider.touch.originalPos = el.position();
         var orig = e.originalEvent,
         touchPoints = (typeof orig.changedTouches !== 'undefined') ? orig.changedTouches : [orig];
-        var chromePointerEvents = typeof PointerEvent === 'function'; 
-        if (chromePointerEvents) { 
-            if (orig.pointerId === undefined) { 
-                return;
-            } 
-        }
+		var chromePointerEvents = typeof PointerEvent === 'function'; 
+		if (chromePointerEvents) { 
+			if (orig.pointerId === undefined) { 
+				return;
+			} 
+		}
         // record the starting touch x, y coordinates
         slider.touch.start.x = touchPoints[0].pageX;
         slider.touch.start.y = touchPoints[0].pageY;
@@ -1485,7 +1486,7 @@
     el.goToNextSlide = function() {
       // if infiniteLoop is false and last page is showing, disregard call
       if (!slider.settings.infiniteLoop && slider.active.last) { return; }
-      if (slider.working === true){ return ;}
+	  if (slider.working === true){ return ;}
       var pagerIndex = parseInt(slider.active.index) + 1;
       el.goToSlide(pagerIndex, 'next');
     };
@@ -1496,7 +1497,7 @@
     el.goToPrevSlide = function() {
       // if infiniteLoop is false and last page is showing, disregard call
       if (!slider.settings.infiniteLoop && slider.active.index === 0) { return; }
-      if (slider.working === true){ return ;}
+	  if (slider.working === true){ return ;}
       var pagerIndex = parseInt(slider.active.index) - 1;
       el.goToSlide(pagerIndex, 'prev');
     };
@@ -1518,8 +1519,8 @@
           el.goToPrevSlide();
         }
       }, slider.settings.pause);
-      //allback for when the auto rotate status changes
-      slider.settings.onAutoChange.call(el, true);
+	  //allback for when the auto rotate status changes
+	  slider.settings.onAutoChange.call(el, true);
       // if auto controls are displayed and preventControlUpdate is not true
       if (slider.settings.autoControls && preventControlUpdate !== true) { updateAutoControls('stop'); }
     };
@@ -1538,8 +1539,8 @@
       // clear the interval
       clearInterval(slider.interval);
       slider.interval = null;
-      //allback for when the auto rotate status changes
-      slider.settings.onAutoChange.call(el, false);
+	  //allback for when the auto rotate status changes
+	  slider.settings.onAutoChange.call(el, false);
       // if auto controls are displayed and preventControlUpdate is not true
       if (slider.settings.autoControls && preventControlUpdate !== true) { updateAutoControls('start'); }
     };
@@ -1636,8 +1637,8 @@
       if (slider.settings.keyboardEnabled) { $(document).off('keydown', keyPress); }
       //remove self reference in data
       $(this).removeData('bxSlider');
-      // remove global window handlers
-      $(window).off('blur', windowBlurHandler).off('focus', windowFocusHandler);
+	  // remove global window handlers
+	  $(window).off('blur', windowBlurHandler).off('focus', windowFocusHandler);
     };
 
     /**

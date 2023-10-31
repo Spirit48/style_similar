@@ -1,0 +1,115 @@
+/* This CSS is needed to make the rotator work. Better do not change it. 
+   Use cutom.css instead for customizations */
+
+.div-rotator
+{
+position:relative;
+opacity:0.01;
+overflow:visible;
+display:block;
+}
+
+.div-rotator
+.div-rotator-inner
+{
+position:relative;
+opacity:0.01;
+overflow:visible;
+display:block;
+}
+
+.div-rotator-inner
+{
+height:100%;
+width:100%;
+}
+
+
+.div-rotator div.div-ring
+{
+position:absolute;
+top:0%;
+left:0%;
+width:100%;
+height:100%;
+}
+
+
+.div-rotator div.div-e
+{
+position:absolute;
+width:1px;
+height:1px;
+overflow:visible;
+left:50%;
+top:50%;
+}
+
+.div-rotator *
+{
+white-space: nowrap;	
+-moz-user-select: none;
+-khtml-user-select: none;
+-webkit-user-select: none;
+user-select: none;
+}
+
+.div-rotator
+{	
+margin:40px auto;
+font-size:38px;
+width:100%;   /* do not set height, the script resets the effective values */
+height:240px;   
+color:#46c3bc;
+}
+
+
+.div-rotator a,
+.div-rotator a:link,
+.div-rotator a:active
+{
+text-decoration:none;	
+color:#46c3bc;
+}
+
+.div-rotator a:hover
+{
+text-decoration:underline;		
+color:#46c3bc;
+}
+
+.div-rotator .big { font-size:100%; }
+.div-rotator .medium { font-size:80%; }
+.div-rotator .small { font-size:60%; }
+
+@media all and (max-width:1260px) {
+   .div-rotator .big { font-size:22px; }
+   .div-rotator .medium { font-size:18px; }
+   .div-rotator .small { font-size:14px; }
+
+   .div-rotator{height:200px;margin:20px auto;}
+ }
+ 
+
+.div-rotator img
+{
+top:-2em;	
+left:-1em;	
+width:4em;		
+height:auto;
+}
+
+.div-rotator a img:hover
+{
+border-bottom:0.1em solid;
+}
+
+.infobox
+{
+margin-top:1em;
+border:2px solid #1188cc;
+background:#aaddff;
+border-radius:1em;	
+}
+
+

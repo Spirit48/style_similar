@@ -1,0 +1,106 @@
+{% load  static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>STYLEPICK</title>
+
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script type="text/javascript" language="javascript" src="../static/js/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="../static/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" language="javascript" src="../static/js/fullcalendar/fullcalendar.js"></script>
+    <script type="text/javascript" language="javascript" src="../static/js/cropper/cropper.min.js"></script>
+    <script type="text/javascript" language="javascript" src="../static/js/common.js"></script>
+    <script type="text/javascript" language="javascript" src="../static/js/ui.js"></script>
+    <script type="text/javascript" language="javascript" src="../static/js/moment/moment-with-locales.js"></script>
+    <script type="text/javascript" language="javascript" src="../static/js/bootstrap/bootstrap-datetimepicker.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../static/css/jquery-ui.css" />
+    <link type="text/css" rel="stylesheet" href="../static/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="../static/css/xeicon.min.css" />
+    <link type="text/css" rel="stylesheet" href="../static/js/fullcalendar/fullcalendar.css" />
+    <link type="text/css" rel="stylesheet" href="../static/css/bootstrap-datetimepicker.css">
+    <link type="text/css" rel="stylesheet" href="../static/js/cropper/cropper.min.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css" />
+</head>
+<body>
+{% block header %}
+<div class="wrap">
+    <header class="header js-header">
+        <div class="wrapper">
+            <a href="javascript:void(0);" class="mMenu"></a>
+
+            <h1 class="logo"><a href="javascript:void(0);" title="FASHIONPICK">FASHIONPICK</a></h1>
+
+            <div class="gnb-menu js-gnb-menu">
+                <div class="mask"></div>
+                <div class="inner">
+                    <div class="gnb-top">
+                        <strong>FASHIONPICK</strong>
+
+                        <p class="txt">로그인 및 회원가입을 하시면 더 많은<br>정보와 혜택을 받으실 수 있습니다.</p>
+
+                        <div class="menu">
+                            <a href="javascript:void(0);" class="btn1">회원가입</a>
+                            <a href="javascript:void(0);" class="btn2">로그인</a>
+                        </div>
+                    </div>
+
+                    <nav class="list">
+                        <ul>
+                            <li><a href="{% url 'insta_image_list' %}">목록</a></li>
+                            <li><a href="{% url 'insta_detail' insta_image_id='1039840873029022559' %}">인스타 상세</a></li>
+                            <li><a href="{% url 'product_detail' mall_image_id='47144' %}">제품 상세</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="profile-top">
+                        <a href="javascript:void(0);" onclick="$('.profile-top').toggleClass('active');">
+                            <div class="thumb"><img src="../static/images/0_profile.jpg"></div>
+                        </a>
+                        <div class="profile-pop">
+                            <div class="mem-info-wrap">
+                                <div class="mem-thumb"><img src="../static/images/0_profile.jpg"></div>
+                                <p><b class="user_nm">한결</b>님</p>
+                                <a href="javascript:void(0);">마이페이지</a>
+                            </div>
+                            <div class="mem-point">
+                                <ul>
+                                    <li>
+                                        <span class="tit">활동포인트</span>
+                                        <span class="point visit_point">165,120</span>
+                                    </li>
+                                    <li>
+                                        <span class="tit">캐시포인트</span>
+                                        <span class="point cash_point">639,654</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mem-menu">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0);">마이페이지</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">로그아웃</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+{% block content %}
+{% endblock %}
+</div>
+</body>
+</html>

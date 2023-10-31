@@ -2,7 +2,7 @@
 
 * {margin:0;padding:0;line-height:1.4em;-webkit-overflow-scrolling:touch;box-sizing:border-box;-webkit-hyphens:auto;hyphens:auto;letter-spacing:-0.05em;vertical-align:middle;font-family:inherit;color:inherit;font-weight:inherit;}
 html, body {height:100%;font-size:12px;font-family:'NotoSansCJKkr', 'sans-serif';}
-body {color:#333;-webkit-text-size-adjust:none;word-break:keep-all;word-wrap:break-word;}
+body {color:#333;-webkit-text-size-adjust:none;word-break:keep-all;word-wrap:break-word;font-size:16px;}
 legend, caption, figcaption {display:none;}
 ul,ol {list-style-image:none;list-style-position:outside;list-style-type:none;border:0px;}
 img,fieldset, frameset, frameborder, frame {border:0;}

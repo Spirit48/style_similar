@@ -1,3 +1,5 @@
+# pip install webdriver_manager
+
 from urllib.request import urlopen, urlretrieve
 from urllib.parse import quote_plus as qp  
 
@@ -195,13 +197,12 @@ class InstaCrawling:
             
             # db 연결
             conn = pymysql.connect(
-                    user="root",
-                    password="0000",
-                    host="localhost",
+                    user="style_similar",
+                    password="tmxkdlftlalffj9446!!",
+                    host="192.168.0.100",
                     port=3306,
                     database="style_similar",
                     charset='utf8',
-
                 )
 
             #저장할 데이터
@@ -211,10 +212,10 @@ class InstaCrawling:
 
             # db에 저장
             with conn.cursor() as cursor:
-                sql = "INSERT IGNORE INTO board_celeb (celeb_insta_id, celeb_insta_url, celeb_follower) VALUES (%s, %s, %s)"
+                sql = "INSERT IGNORE INTO contents_celeb (celeb_insta_id, celeb_insta_url, celeb_follower) VALUES (%s, %s, %s)"
                 cursor.execute(sql, celeb_data)
                 
-                sql = "INSERT IGNORE INTO board_insta (insta_image_id, insta_celeb, insta_product_name, insta_product_brand, insta_product_category, insta_url, celeb_insta_id_id) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+                sql = "INSERT IGNORE INTO contents_insta (insta_image_id, insta_celeb, insta_product_name, insta_product_brand, insta_product_category, insta_url, celeb_insta_id_id) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                 cursor.execute(sql, insta_data)
 
 
@@ -247,7 +248,7 @@ class InstaCrawling:
         # 인스타 사진을 가져올 계정 url
         url = "https://www.instagram.com/k_fashion.trend/"
         # 인스타 사진을 저장할 폴더 생성
-        path_folder = './static/images/insta/'
+        path_folder = '../static/images/insta/'
         # url에서 각 게시물의 url을 저장
         url_list = self.insta_url(url, path_folder, driver)
 

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="contents wrapper">
+            <div class="styling-product-wrap">
+                <div class="store-title">무신사</div>
+                <div class="product-detail">
+                    <div class="prd-img">
+                        <div class="prd">
+                            <img src="{% static 'images/musinsa/' %}{{ mall_data.mall_category_id }}/{{ mall_data.mall_image_id }}.jpg" alt="{{ mall_data.mall_image_id }}">
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <div class="brand"><span>Brand : {{ mall_data.mall_brand }}</span></div>
+                        <div class="prd-name">Product : {{ mall_data.mall_name }}</div>
+
+                        <div class="bottom">
+                            <ul class="prd-info-list">
+                                <li>
+                                    <span class="label">댓글 개수</span>
+
+                                    <div class="info">{{review_count}}개</div>
+                                </li>
+                                <li>
+                                    <span class="label">댓글 긍정도</span>
+
+                                    <div class="info">{{mall_data.review_sentiment}}</div>
+                                </li>
+                                <li>
+                                    <span class="label full">댓글키워드</span>
+
+                                    <div class="info">
+                                        <div class="reple-keyword">
+                                            <div>{{mall_data.review_keyword}}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="btn-wrap">
+                                <a href="javascript:void(0);" class="btn-type1 st4 auto">상품 구매하기</a>
+                                <a href="javascript:void(0);" class="btn-type1 st2">창닫기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

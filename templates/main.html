@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="contents wrapper">
+            <div class="styling-product-wrap">
+                <div class="tab-type4">
+                    <ul>
+                        <li class="on"><a href="javascript:void(0);">티셔츠 </a></li>
+                        <li><a href="javascript:void(0);">블라우스</a></li>
+                        <li><a href="javascript:void(0);">원피스</a></li>
+                        <li><a href="javascript:void(0);">팬츠</a></li>
+                    </ul>
+                </div>
+
+                
+                <div class="style-cate-list">
+                    <ul>
+                    {% for insta_image_id in insta_image_ids %}
+                        <a href="{% url 'insta_detail' insta_image_id=insta_image_id %}" class="prd-img">
+                            <div class="prd">
+                                <img src="{% static 'images/insta/' %}{{ insta_image_id }}.jpg" alt="{{ insta_image_id }}">
+                            </div>
+                        </a>
+                    {% endfor %}
+                    </ul>
+                </div>
+        </div>
+    </div>
+{% endblock %}
